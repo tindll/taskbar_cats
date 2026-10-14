@@ -1,0 +1,50 @@
+# Push a tag vX.Y.Z (matching <Version> in src/TaskbarCats/TaskbarCats.csproj) to build, test and publish a release.
+name: release
+
+on:
+  push:
+    tags: ['v*']
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 10.0.x
+
+      - name: Tag must match csproj version
+        shell: pwsh
+        run: |
+          $v = ([xml](Get-Content src/TaskbarCats/TaskbarCats.csproj -Raw)).Project.PropertyGroup.Version | Where-Object { $_ } | Select-Object -First 1
+          if ("v$v" -ne '${{ github.ref_name }}') { throw "Tag ${{ github.ref_name }} != csproj version v$v" }
+
+      - name: Test
+        run: dotnet test TaskbarCats.slnx -c Release
+
+      - name: Install Velopack CLI
+        run: dotnet tool install -g vpk --version 1.2.0
+
+      - name: Pack
+        shell: pwsh
+        run: ./tools/pack.ps1 -OutDir release
+
+      - name: Upload release (installer, update feed)
+        shell: pwsh
+        run: >
+          vpk upload github --repoUrl ${{ github.server_url }}/${{ github.repository }}
+          --token ${{ secrets.GITHUB_TOKEN }} --publish
+          --releaseName "taskbar-cats ${{ github.ref_name }}" --tag ${{ github.ref_name }}
+          --outputDir release
+
+      - name: Attach portable exe
+        shell: pwsh
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          Copy-Item release/portable/TaskbarCats.exe release/TaskbarCats-portable-needs-dotnet10.exe
+          gh release upload ${{ github.ref_name }} release/TaskbarCats-portable-needs-dotnet10.exe

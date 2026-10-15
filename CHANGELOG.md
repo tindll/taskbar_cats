@@ -1,5 +1,9 @@
 # Changelog
 
+## 5.0.1
+- A finished cat no longer says MEOW when you are already looking at its conversation's window.
+- README with pictures.
+
 ## 5.0.0
 - Installer: per-user Setup.exe (no admin), Start-menu shortcut, Start with Windows, uninstaller.
 - Tray menu: Start with Windows, Check for updates, About.

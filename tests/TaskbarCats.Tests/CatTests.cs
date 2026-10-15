@@ -72,6 +72,19 @@ public class CatTests
         Assert.False(c.IsAsleep);   // acknowledged cats do not fall asleep
     }
 
+    [Fact] public void Acknowledge_stops_meow_without_a_click_and_only_when_idle()
+    {
+        var c = Landed();
+        c.Status = SessionStatus.Working;
+        c.Acknowledge();
+        Assert.False(c.Acknowledged);   // busy: nothing to acknowledge
+        c.Status = SessionStatus.Idle;
+        c.Acknowledge();                // the user is already looking at the window
+        Run(c, 5);
+        Assert.True(c.Acknowledged);
+        Assert.Equal(Bubble.None, c.Bubble);
+    }
+
     [Fact] public void Finishing_a_task_restarts_meow()
     {
         var c = Landed();

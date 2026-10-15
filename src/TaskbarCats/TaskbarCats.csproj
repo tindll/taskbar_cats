@@ -9,7 +9,7 @@
     <StartupObject>TaskbarCats.Program</StartupObject>
     <ApplicationManifest>app.manifest</ApplicationManifest>
     <ApplicationIcon>TaskbarCats.ico</ApplicationIcon>
-    <Version>5.0.0</Version>
+    <Version>5.0.1</Version>
     <Product>taskbar-cats</Product>
     <AssemblyTitle>taskbar-cats</AssemblyTitle>
     <Authors>tindll</Authors>
@@ -21,6 +21,7 @@
     <Using Remove="System.Windows.Forms" />
     <Using Remove="System.Drawing" />
     <InternalsVisibleTo Include="TaskbarCats.Tests" />
+    <InternalsVisibleTo Include="MakeMedia" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Velopack" Version="1.2.0" />

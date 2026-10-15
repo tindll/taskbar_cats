@@ -304,6 +304,7 @@ public sealed class Herd
             if (_settings.Sounds && !v.Look.Quiet && _chimes.Decide(s.SessionId, v.LastStatus, s.Status, _clock.Elapsed.TotalSeconds) is { } chime)
                 Play(chime);
             v.Session = s; v.Cat.Status = s.Status; v.LastStatus = s.Status;
+            if (s.Status == SessionStatus.Idle && WindowFocuser.IsFocused(s)) v.Cat.Acknowledge();   // already looking at it: no MEOW
             v.Signals = s.Tool == AgentTool.Claude ? _transcripts.Signals(s.SessionId) : s.Live;
             v.Subagents = _transcripts.RunningSubagents(s.SessionId, now);
             cues[v] = v.Mood.Update(v.Signals, s.Status, s.UpdatedAt, v.Subagents, now);

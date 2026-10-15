@@ -79,6 +79,9 @@ public static class WindowFocuser
         return h;
     }
 
+    /// The conversation's window is the foreground window right now.
+    public static bool IsFocused(SessionInfo s) => WindowFor(s) is var h && h != IntPtr.Zero && h == Native.ForegroundWindow();
+
     static IntPtr WindowFor(SessionInfo s) => s.Host switch
     {
         "cursor" => FindWindow(t => TitleMatches(t, s.Cwd, "Cursor")),

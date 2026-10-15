@@ -183,6 +183,9 @@ public sealed partial class Cat
     /// Show a bubble for a few seconds, over whatever the cat would normally say.
     public void Say(Bubble b, double seconds) { _say = b; _sayLeft = seconds; }
 
+    /// The user is already looking at this conversation's window: no MEOW for a finished task.
+    public void Acknowledge() { if (_mode == Mode.Live && _status == SessionStatus.Idle) Acknowledged = true; }
+
     public ClickResult Click()
     {
         if (_mode != Mode.Live) return ClickResult.None;

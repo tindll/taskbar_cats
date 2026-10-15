@@ -34,7 +34,7 @@ public sealed partial class Cat
         ? X + (FacingRight ? Size * 0.75 + Tune.KittenGap * i : -Tune.KittenGap * (i + 1))
         : X + (FacingRight ? -Tune.KittenGap * (i + 1) : Size * 0.75 + Tune.KittenGap * i), _lo, _hi + Size / 2);
     public double KittenLift(int i) => Supervising ? Tune.KittenHop * Math.Abs(Math.Sin(_age * 4 + i * 1.3)) : 0;
-    public bool KittensMoving => Anim is Anim.Walk or Anim.Run or Anim.Sniff;
+    public bool KittensMoving => Anim is Anim.Walk or Anim.Run;
 
     void OnStatus(SessionStatus value)
     {
@@ -99,7 +99,6 @@ public sealed partial class Cat
             case Activity.Toy when Toy == Toy.Yarn:
             case Activity.Bat: TickYarn(dt, w); return;
             case Activity.Toy: TickStalk(dt, w); return;
-            case Activity.Sniff: Stroll(dt); return;
             case Activity.Watch:
                 Hold(Anim.LookUp);
                 if (Toy != Toy.Bird)   // a bird cat watches its own bird instead
@@ -136,16 +135,6 @@ public sealed partial class Cat
             _ => Bird?.X,
         };
         if (at is double x && Math.Abs(x - X) > 1) FacingRight = x > X;
-    }
-
-    /// Read/Grep/Glob: walk slowly, nose down behind the magnifier, turning at the strip ends.
-    void Stroll(double dt)
-    {
-        Hold(Anim.Sniff);
-        if (_pinned) return;
-        X += (FacingRight ? 1 : -1) * Tune.SniffSpeed * dt;
-        if (X <= _lo) { X = _lo; FacingRight = true; }
-        if (X >= _hi) { X = _hi; FacingRight = false; }
     }
 
     /// Yarn: run to the ball, bat it along the strip, run after it.

@@ -37,7 +37,6 @@ public class TuneTests
     public void Yarn_grows_with_edits(int edits, int stage) => Assert.Equal(stage, Tune.YarnStage(edits));
 
     [Theory]
-    [InlineData("Read", Activity.Sniff)] [InlineData("Grep", Activity.Sniff)] [InlineData("Glob", Activity.Sniff)]
     [InlineData("Edit", Activity.Bat)] [InlineData("Write", Activity.Bat)] [InlineData("MultiEdit", Activity.Bat)]
     [InlineData("WebFetch", Activity.Watch)] [InlineData("WebSearch", Activity.Watch)]
     public void Tools_map_to_poses(string tool, Activity pose)

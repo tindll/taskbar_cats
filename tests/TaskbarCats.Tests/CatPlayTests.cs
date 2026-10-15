@@ -13,7 +13,7 @@ public class CatPlayTests
     [Theory]
     [InlineData(Activity.Watch, Anim.LookUp)] [InlineData(Activity.Butterfly, Anim.LookUp)]
     [InlineData(Activity.Box, Anim.Box)] [InlineData(Activity.Rest, Anim.Loaf)]
-    [InlineData(Activity.Nap, Anim.Sleep)] [InlineData(Activity.Limit, Anim.Sleep)] [InlineData(Activity.Sniff, Anim.Sniff)]
+    [InlineData(Activity.Nap, Anim.Sleep)] [InlineData(Activity.Limit, Anim.Sleep)]
     public void Each_activity_has_its_pose_and_no_bubble(Activity a, Anim anim)
     {
         var c = Busy(a);
@@ -149,7 +149,7 @@ public class CatPlayTests
 
     [Theory]
     [InlineData(Activity.Toy)] [InlineData(Activity.Watch)] [InlineData(Activity.Box)] [InlineData(Activity.Rest)]
-    [InlineData(Activity.Nap)] [InlineData(Activity.Sniff)] [InlineData(Activity.Limit)]
+    [InlineData(Activity.Nap)] [InlineData(Activity.Limit)]
     public void The_mouse_never_covers_the_cats_face(Activity a)
     {
         foreach (int seed in new[] { 1, 2, 3 })

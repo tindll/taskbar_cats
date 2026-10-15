@@ -26,7 +26,6 @@ public class DrawRulesTests
 
     [Fact] public void The_belly_grows_only_on_poses_with_a_torso()
     {
-        Assert.DoesNotContain(Anim.Sniff, Tune.BellyAnims);
         Assert.DoesNotContain(Anim.Sleep, Tune.BellyAnims);
         foreach (var a in Tune.BellyAnims)
             foreach (var f in Sprites.Frames[a])

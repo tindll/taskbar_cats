@@ -24,7 +24,7 @@ public class YarnChaseTests
     }
 
     [Theory]
-    [InlineData(Activity.Toy)] [InlineData(Activity.Bat)] [InlineData(Activity.Sniff)]
+    [InlineData(Activity.Toy)] [InlineData(Activity.Bat)]
     [InlineData(Activity.Box)] [InlineData(Activity.Rest)]
     [InlineData(Activity.Nap)] [InlineData(Activity.Watch)] [InlineData(Activity.Butterfly)] [InlineData(Activity.Supervise)]
     public void A_thrown_ball_is_chased_whatever_the_mood(Activity a)

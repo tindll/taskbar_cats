@@ -1,9 +1,9 @@
 namespace TaskbarCats;
 
 /// What a busy cat is doing, chosen from the conversation's live signals (Mood).
-/// Toy = the filler between tool calls (its pursuit: mouse, yarn or bird); a shell command plays with it too. Sniff/Bat/Watch = tool poses.
+/// Toy = the filler between tool calls (its pursuit: mouse, yarn or bird); a shell command plays with it too. Bat/Watch = tool poses.
 /// Box = the model has been thinking for BoxAfter. Rest/Nap = a long run. Limit = rate limited. Supervise = sub-agents only.
-public enum Activity { Toy, Sniff, Bat, Watch, Box, Supervise, Rest, Nap, Limit, Butterfly }
+public enum Activity { Toy, Bat, Watch, Box, Supervise, Rest, Nap, Limit, Butterfly }
 
 /// One-off reactions to something that just happened in the conversation.
 public enum Cue { Mrrp, Catch, Slip, Sneeze, Startle, Wonder, Reward }
@@ -74,13 +74,12 @@ public static class Tune
 
     public static Activity? PoseFor(string? tool) => tool switch
     {
-        "Read" or "Grep" or "Glob" or "LS" or "NotebookRead" => Activity.Sniff,
         "Edit" or "Write" or "MultiEdit" or "NotebookEdit" => Activity.Bat,
         "WebFetch" or "WebSearch" => Activity.Watch,
         _ => null,
     };
 
-    public static bool IsPose(Activity a) => a is Activity.Sniff or Activity.Bat or Activity.Watch;
+    public static bool IsPose(Activity a) => a is Activity.Bat or Activity.Watch;
 
     /// Pumpkin instead of the box, a bat instead of the overhead bird.
     public static bool IsHalloween(DateTime d) => d.Month == 10 && d.Day >= 17;
@@ -113,7 +112,7 @@ public static class Tune
     public const double BirdFlapMs = 120, BirdPeckEvery = 1.5, BirdPeckTime = 0.3;
     // Cat side (CatPlay.cs). Distances are from the cat's left edge to the thing's left edge.
     public const double YarnStart = 60, BirdStart = 160, MouseBeside = 60, CheeseGap = 22;
-    public const double SniffSpeed = 15, StalkRange = 140, WiggleMin = 0.8, WiggleMax = 1.8, BatTime = 0.45;
+    public const double StalkRange = 140, WiggleMin = 0.8, WiggleMax = 1.8, BatTime = 0.45;
     public const double FlyerSwing = 70, FlyerLift = 64, ButterflyAhead = 30, ButterflyLift = 40;
     public const double KittenGap = 20, KittenHop = 10;
     // Reactions (CatCues.cs), seconds unless noted.

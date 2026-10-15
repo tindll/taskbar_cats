@@ -5,7 +5,7 @@
 [![Release](https://img.shields.io/github/v/release/tindll/taskbar_cats?label=release)](https://github.com/tindll/taskbar_cats/releases/latest)
 ![Platform: Windows 11](https://img.shields.io/badge/platform-Windows%2011-0078D4)
 ![.NET 10](https://img.shields.io/badge/.NET-10-512BD4)
-![Tests: 567](https://img.shields.io/badge/tests-567%20passing-brightgreen)
+![Tests: 561](https://img.shields.io/badge/tests-561%20passing-brightgreen)
 
 ![A few cats on a taskbar: one says MEOW, one sleeps, one waits with a "!"](docs/media/strip.png)
 
@@ -26,7 +26,6 @@ And they do more than sit:
 | You see | It means |
 |---|---|
 | Chasing a mouse, batting a yarn ball, watching a bird | The session is busy (the favourite toy follows its personality, or the one you picked) |
-| Sniffing | Reading: Read, Grep, Glob, LS |
 | Batting at something | Editing: Edit, Write, MultiEdit |
 | Looking up | Fetching from the web: WebFetch, WebSearch |
 | Yarn ball grows | Edits since you last typed (steps at 3 and 8) |

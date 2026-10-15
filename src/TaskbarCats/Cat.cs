@@ -1,6 +1,6 @@
 namespace TaskbarCats;
 
-public enum Anim { Walk, Sit, Lick, Wash, Stretch, Yawn, Sleep, Run, PawUp, Hop, Hiss, Crouch, Leap, Dangle, Eat, Fly, Sniff, Bat, LookUp, Box, Pumpkin, Loaf, Sneeze, Nuzzle, Slip, Curl, Flat }
+public enum Anim { Walk, Sit, Lick, Wash, Stretch, Yawn, Sleep, Run, PawUp, Hop, Hiss, Crouch, Leap, Dangle, Eat, Fly, Bat, LookUp, Box, Pumpkin, Loaf, Sneeze, Nuzzle, Slip, Curl, Flat }
 public enum Bubble { None, Meow, Bang, Zzz, GoodJob }
 public enum ClickResult { None, Focus }
 
@@ -17,7 +17,7 @@ public sealed partial class Cat
         [Anim.Stretch] = (3, 250), [Anim.Yawn] = (3, 200), [Anim.Sleep] = (2, 800), [Anim.Run] = (6, 70),
         [Anim.PawUp] = (2, 400), [Anim.Hop] = (3, 167), [Anim.Hiss] = (2, 200),
         [Anim.Crouch] = (2, 100), [Anim.Leap] = (2, 250), [Anim.Dangle] = (4, 600), [Anim.Eat] = (2, 200), [Anim.Fly] = (2, 200),
-        [Anim.Sniff] = (4, 150), [Anim.Bat] = (3, 150), [Anim.LookUp] = (2, 400),   // v4 tool poses
+        [Anim.Bat] = (3, 150), [Anim.LookUp] = (2, 400),   // v4 tool poses
         [Anim.Box] = (2, 700), [Anim.Pumpkin] = (2, 700), [Anim.Loaf] = (2, 900),
         [Anim.Sneeze] = (2, 300), [Anim.Nuzzle] = (2, 500), [Anim.Slip] = (2, 200),
         [Anim.Curl] = (2, 800), [Anim.Flat] = (2, 800),   // v5 sleep poses: a slow breath, like Sleep

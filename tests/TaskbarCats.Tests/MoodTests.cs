@@ -36,14 +36,14 @@ public class MoodTests
     {
         var picks = Enumerable.Range(0, 200).Select(seed => { var m = New(seed); At(m, Tool("Edit"), 0); return m.Activity; }).ToList();
         Assert.InRange(picks.Count(a => a == Activity.Bat), 100, 200);
-        Assert.DoesNotContain(picks, a => a is Activity.Sniff or Activity.Watch);
+        Assert.DoesNotContain(picks, a => a is Activity.Watch);
     }
 
     [Fact] public void A_new_tool_kind_switches_the_pose_at_once()
     {
-        var m = Enumerable.Range(0, 100).Select(New).First(m => { At(m, Tool("Read"), 0); return m.Activity == Activity.Sniff; });
+        var m = Enumerable.Range(0, 100).Select(New).First(m => { At(m, Tool("Edit"), 0); return m.Activity == Activity.Bat; });
         At(m, Tool("Bash", last: 2), 2);
-        Assert.NotEqual(Activity.Sniff, m.Activity);
+        Assert.NotEqual(Activity.Bat, m.Activity);
     }
 
     [Fact] public void A_pick_is_held_then_never_repeated()

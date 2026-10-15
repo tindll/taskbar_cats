@@ -103,7 +103,7 @@ static class Media
         (Anim.Walk, "Walk", 1), (Anim.Run, "Run", 2), (Anim.Sit, "Sit", 0), (Anim.Loaf, "Loaf", 0), (Anim.Sleep, "Sleep", 0),
         (Anim.Curl, "Curl", 0), (Anim.Flat, "Flat", 0), (Anim.Stretch, "Stretch", 1), (Anim.Yawn, "Yawn", 1), (Anim.Lick, "Lick", 1),
         (Anim.Wash, "Wash", 1), (Anim.Hop, "Hop", 1), (Anim.Leap, "Leap", 0), (Anim.PawUp, "PawUp", 0), (Anim.Bat, "Bat", 1),
-        (Anim.Sniff, "Sniff", 1), (Anim.Box, "Box", 0), (Anim.Sneeze, "Sneeze", 1), (Anim.Nuzzle, "Nuzzle", 0), (Anim.Crouch, "Crouch", 0),
+        (Anim.Box, "Box", 0), (Anim.Sneeze, "Sneeze", 1), (Anim.Nuzzle, "Nuzzle", 0), (Anim.Crouch, "Crouch", 0),
         (Anim.Hiss, "Hiss", 0), (Anim.Eat, "Eat", 0), (Anim.Slip, "Slip", 0), (Anim.LookUp, "LookUp", 0), (Anim.Dangle, "Carried", 0),
         (Anim.Fly, "Thrown", 0), (Anim.Pumpkin, "Pumpkin", 0),
     ];

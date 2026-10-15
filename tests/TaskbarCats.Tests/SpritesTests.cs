@@ -160,7 +160,7 @@ public class SpritesTests
     }
 
     [Fact] public void Tool_poses_are_drawn() =>
-        Assert.All(new[] { Anim.Sniff, Anim.Bat, Anim.LookUp }, a => Assert.True(Sprites.Frames.ContainsKey(a), a.ToString()));
+        Assert.All(new[] { Anim.Bat, Anim.LookUp }, a => Assert.True(Sprites.Frames.ContainsKey(a), a.ToString()));
 
     [Fact] public void Thinking_and_tired_poses_are_drawn() =>
         Assert.All(new[] { Anim.Box, Anim.Pumpkin, Anim.Loaf }, a => Assert.True(Sprites.Frames.ContainsKey(a), a.ToString()));
@@ -264,7 +264,7 @@ public class SpritesTests
     }
     // v5 customization: coats, plain coat, collars.
     // head down in a bowl or box, or tucked under the tail: no neck to ring, the frame comes back unchanged
-    static readonly Anim[] CollarLess = [Anim.Box, Anim.Pumpkin, Anim.Sniff, Anim.Curl];
+    static readonly Anim[] CollarLess = [Anim.Box, Anim.Pumpkin, Anim.Curl];
     // a low pose with no chest under the band (it lies on the ground): the medallion takes the band's front px
     static readonly Anim[] NoChest = [Anim.Slip, Anim.Flat, Anim.Sleep, Anim.Stretch, Anim.Crouch, Anim.Eat];
     [Fact] public void There_are_ten_coats_with_unique_names_and_six_collars()

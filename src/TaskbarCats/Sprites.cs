@@ -61,7 +61,7 @@ public static partial class Sprites
     }
 
     /// Poses with no collar: the head is down in a bowl or box, or tucked under the tail, so there is no neck to ring.
-    static readonly HashSet<Anim> NoNeck = [Anim.Box, Anim.Pumpkin, Anim.Sniff, Anim.Curl];
+    static readonly HashSet<Anim> NoNeck = [Anim.Box, Anim.Pumpkin, Anim.Curl];
 
     /// `rows` with the collar drawn as 'R' (Palette.Collar) and the gold medallion as 'T'. The band is one horizontal row
     /// of fur directly under the head (the row after the nose 'P', or after the eyes 'E' when they sit lower, the
@@ -225,7 +225,7 @@ public static partial class Sprites
         [Anim.Walk] = WalkFrames,
         [Anim.Run] = WalkFrames,   // same legs, faster frame rate (Cat.Timing)
         [Anim.Sit] = SitFrames, [Anim.Hop] = HopFrames, [Anim.Leap] = LeapFrames,   // profile head (SpriteArt.cs)
-        [Anim.Sniff] = SniffFrames, [Anim.Bat] = BatFrames, [Anim.LookUp] = LookUpFrames,
+        [Anim.Bat] = BatFrames, [Anim.LookUp] = LookUpFrames,
         [Anim.Box] = BoxFrames, [Anim.Pumpkin] = PumpkinFrames, [Anim.Loaf] = LoafFrames,
         [Anim.Sneeze] = SneezeFrames, [Anim.Nuzzle] = NuzzleFrames, [Anim.Slip] = SlipFrames,
         [Anim.Curl] = CurlFrames, [Anim.Flat] = FlatFrames,   // v5 sleep poses (SpriteArt.cs)

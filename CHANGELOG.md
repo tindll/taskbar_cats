@@ -1,5 +1,8 @@
 # Changelog
 
+## Unreleased
+- Removed the sniffing animation: Read, Grep and Glob no longer change the cat's pose.
+
 ## 5.0.1
 - A finished cat no longer says MEOW when you are already looking at its conversation's window.
 - README with pictures.
